@@ -27,7 +27,7 @@
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
   <script>
     const mapOptions = {
-      zoomSnap: 1.5,
+      zoomSnap: 0.5,
       center: [31.9048074, 35.2013228],
       zoom: 17.5,
     };
@@ -48,9 +48,7 @@
     $.getJSON("Libraries.json", function(WC) {
       L.geoJson(WC, {
         onEachFeature: function(feature, layer) {
-          layer.on('click', function(e) {
-            alert("Library Name: " + feature.properties.BUSNIESS_1);
-          });
+          layer.bindPopup("<b>Library Name:</b> " + feature.properties.BUSNIESS_1);
         }
       }).addTo(map);
     });
@@ -58,4 +56,3 @@
   </script>
 </body>
 </html>
-
