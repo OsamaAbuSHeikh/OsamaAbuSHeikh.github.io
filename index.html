@@ -46,15 +46,6 @@
 
     $.getJSON("Libraries.json", function(WC) {
       L.geoJson(WC).addTo(map);
-          });
-        },
-        onEachFeature: function(feature, layer) {
-          layer.on('click', function(e) {
-            alert("Library Name: " + feature.properties.BUSNIESS_1);
-          });
-         
-        }
-      }).addTo(map);
     });
   </script>
 </body>
