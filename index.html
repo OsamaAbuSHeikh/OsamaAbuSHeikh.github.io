@@ -33,19 +33,35 @@
       zoom: 17.5,
     };
     const map = L.map("map", mapOptions);
-   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  subdomains: 'abcd',
-  maxZoom: 20
-}).addTo(map);
-// use jquery to load GeoJSON data
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 20
+    }).addTo(map);
 
-    $.getJSON("RamallahZones.json", function(RZ) {
-      L.geoJson(RZ).addTo(map);
+    // Load GeoJSON data
+    $.getJSON("RamallahZones.json", function(data) {
+      L.geoJson(data).addTo(map);
     });
 
-    $.getJSON("Libraries.json", function(WC) {
-      L.geoJson(WC).addTo(map);
+    $.getJSON("Libraries.json", function(data) {
+      L.geoJson(data).addTo(map);
+    });
+
+    $.getJSON("New Pharmacy.json", function(data) {
+      L.geoJson(data).addTo(map);
+    });
+
+    $.getJSON("Old Pharmacies.json", function(data) {
+      L.geoJson(data).addTo(map);
+    });
+
+    $.getJSON("Ramallah Quarter.json", function(data) {
+      L.geoJson(data).addTo(map);
+    });
+
+    $.getJSON("Roads.json", function(data) {
+      L.geoJson(data).addTo(map);
     });
   </script>
 </body>
